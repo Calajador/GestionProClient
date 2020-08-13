@@ -1,0 +1,58 @@
+<main class="main h-100 w-100">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+                <div class="d-table-cell align-middle">
+
+                    <div class="text-center mt-4">
+                        <h1 class="h2">Iniciar Sesion</h1>
+                        <p class="lead">
+                            Sistema de Gestión
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <form #loginForm = 'ngForm' (ngSubmit)=login(loginForm)>
+
+                                <div *ngIf="data_error" class="alert alert-danger alert-dismissible" role="alert">
+                                    <div class="alert-message">
+                                        {{data_error}}
+                                    </div>
+                                    <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">X</span>
+                                    </button>
+                                </div>
+
+                                <div class="m-sm-4">
+                                    <div class="text-center">
+                                        <img src="../../../assets/img/umbrella.png" alt="Umbrella Corp" class="img-fluid rounded-circle" width="132" height="132" />
+                                    </div>
+                                    
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input #email="ngModel" name="email" [(ngModel)]="loginUser.email"
+                                            type="email" class="form-control form-control-lg" 
+                                            placeholder="Escribe tu Email" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input #password="ngModel" name="password" [(ngModel)]="loginUser.password"
+                                            type="password" class="form-control form-control-lg" 
+                                            placeholder="Escribe tu Password" required />
+                                        </div>
+                                        
+                                        <div class="text-center mt-3">
+                                            <button type="submit" class="btn btn-lg btn-primary">Ingresar</button>
+                                        </div>    
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

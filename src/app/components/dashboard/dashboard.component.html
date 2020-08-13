@@ -1,0 +1,54 @@
+<div class="wrapper">
+    <app-sidebar ></app-sidebar>
+
+    <div class="main">
+        <main class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-6 chart-wrapper tamano">
+                        <h2>VENTAS</h2>
+                        <canvas baseChart 
+                        [datasets]="barChartData"
+                        [labels]="barChartLabels"
+                        [options]="barChartOptions"
+                        [plugins]="barChartPlugins"
+                        [legend]="barChartLegend"
+                        [chartType]="barChartType">
+                      </canvas>
+                    </div>
+                    <div class=" col-6 chart-wrapper tamano">
+                        <h2>PROBLEMAS</h2>
+                        <canvas baseChart 
+                        [data]="doughnutChartData"
+                        [labels]="doughnutChartLabels"
+                        [chartType]="doughnutChartType"
+                        [colors]="donutColors">
+                      </canvas>
+                    </div>
+                </div>
+
+                <div class="row">
+                    
+                        <div class="col-12 chart-wrapper tamano mt-7 mb-2">
+                            <h2>SATISFACCIÓN GENERAL</h2>
+                            <canvas baseChart 
+                            [data]="pieChartData" 
+                            [labels]="pieChartLabels" 
+                            [chartType]="pieChartType"
+                            [options]="pieChartOptions"
+                            [plugins]="pieChartPlugins"
+                            [legend]="pieChartLegend"
+                            [colors]="pieColors">
+                          </canvas>
+                        </div>
+                    
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    
+</div>
+

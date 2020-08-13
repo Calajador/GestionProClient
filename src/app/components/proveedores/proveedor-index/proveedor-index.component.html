@@ -1,0 +1,74 @@
+<div class="wrapper">
+    <app-sidebar></app-sidebar>
+
+    <div class="main">
+        <main class="content">
+            <div class="container-fluid">
+
+                <div class="header">
+                    <h1 class="header-title">
+                        Mis proveedores
+                    </h1>
+                    <p class="header-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, iste!.</p>
+                </div>
+
+                <div class="row">
+                    
+                    <div class="col-12 col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                
+                                <div class="btn-group">
+                                    <button type="button" class="btn mb-1 btn-warning"
+                                     aria-haspopup="true"
+                                      aria-expanded="false"
+                                      routerLink="/proveedores/registrar">
+                                        Registrar Proveedor
+                                      </button>
+                                </div>
+                                
+                            </div>
+                            <table class="table table-striped table-hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Proveedor</th>
+                                        <th>Contacto</th>
+                                        <th>Email</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let proveedor of proveedores | paginate: { itemsPerPage: 4, currentPage: p }">
+                                    
+                                        <td>{{proveedor.nombre}}</td>
+                                        <td>{{proveedor.persona_contacto}}</td>
+                                        <td>{{proveedor.email}}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn mb-1 btn-warning dropdown-toggle" 
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-cog"></i>
+                                                </button>
+                                                <div class="dropdown-menu" >
+                                                    <a class="dropdown-item" style="cursor: pointer;" [routerLink] ="['/proveedor/editar/',proveedor._id]">Editar proovedor</a>
+                                                    <a class="dropdown-item" style="cursor: pointer;" (click)="eliminarProovedor(proveedor._id)">Borrar proveedor</a>
+                                                    
+                                                </div>
+                                            </div>
+                                        </td>
+                                    
+                                </tbody> 
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-12">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>   
+   
+</div>
+
+

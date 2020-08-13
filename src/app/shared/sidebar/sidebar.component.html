@@ -1,0 +1,38 @@
+<div class="wrapper">
+    <nav id="sidebar" class="sidebar" style="background-color: darkslategrey !important;">
+        <a class="sidebar-brand" href="index.html">
+      <svg>
+        <use xlink:href="#ion-ios-pulse-strong"></use>
+      </svg>
+      Electro SA
+    </a>
+        <div class="sidebar-content">
+
+            <ul class="sidebar-nav">
+                <li class="sidebar-header">
+                    
+                </li>
+                <li class="sidebar-item active">
+                    <a href="#dashboards" data-toggle="collapse" class="sidebar-link">
+                        <i class="align-middle mr-2 fas fa-fw fa-home"></i> <span class="align-middle">Menus</span>
+                    </a>
+                    <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-parent="#sidebar">
+                        <li class="sidebar-item"><a class="sidebar-link" routerLinkActive="active-link" routerLink="/dashboard">Dashboard</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" routerLinkActive="active-link" routerLink="/productos">Productos</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" routerLinkActive="active-link" routerLink="/proveedores">Proveedores</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" routerLinkActive="active-link" routerLink="/clientes">Clientes</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" routerLinkActive="active-link" routerLink="/ventas">Ventas</a></li>
+                        <li *ngIf="identity.role == 'ADMIN'" class="sidebar-item"><a class="sidebar-link" routerLinkActive="active-link" routerLink="/users">Usuarios</a></li>
+                    </ul>
+                </li>
+                
+                <li class="sidebar-item">
+                    <a (click)="logOut()" class="sidebar-link" href="documentation.html">
+                        <i class="align-middle mr-2 fas fa-fw fa-sign-out-alt"></i> <span class="align-middle">Salir</span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+</div>

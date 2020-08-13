@@ -1,0 +1,72 @@
+<div class="wrapper">
+    <app-sidebar></app-sidebar>
+
+    <div class="main">
+        <main class="content">
+            <div class="container-fluid">
+
+                <div class="header">
+                    <h1 class="header-title">
+                        Ventas
+                    </h1>
+                    <p class="header-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, iste!.</p>
+                </div>
+
+                <div class="row">
+                    
+                    <div class="col-12 col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                
+                                <div class="btn-group">
+                                    <button type="button" class="btn mb-1 btn-success"
+                                     aria-haspopup="true"
+                                      aria-expanded="false"
+                                      routerLink="/ventas/registrar">
+                                        Registrar Venta
+                                      </button>
+                                </div>
+                                
+                            </div>
+                            <table class="table table-striped table-hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Cliente</th>
+                                        <th>Feccha</th>
+                                        <th>Trabajador</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let venta of ventas | paginate: { itemsPerPage: 4, currentPage: p }">
+                                    
+                                        <td>{{venta.idcliente.nombre}}</td>
+                                        <td>{{venta.fecha | date: 'MMM d, y, h:mm:ss a'}}</td>
+                                        <td>{{venta.iduser.nombre}} {{venta.iduser.apellidos}}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn mb-1 btn-success dropdown-toggle" 
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-cog"></i>
+                                                </button>
+                                                <div class="dropdown-menu" >
+                                                    <a class="dropdown-item" style="cursor: pointer;" [routerLink] ="['/venta/',venta._id]">Detalles Venta</a>
+                                                    <!-- <a class="dropdown-item" style="cursor: pointer;" (click)="eliminarProovedor(proveedor._id)">Borrar proveedor</a> -->
+                                                    
+                                                </div>
+                                            </div>
+                                        </td>
+                                    
+                                </tbody> 
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-12">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>   
+   
+</div>

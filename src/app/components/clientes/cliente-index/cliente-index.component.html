@@ -1,0 +1,74 @@
+<div class="wrapper">
+    <app-sidebar></app-sidebar>
+
+    <div class="main">
+        <main class="content">
+            <div class="container-fluid">
+
+                <div class="header">
+                    <h1 class="header-title">
+                        Mis Clientes
+                    </h1>
+                    <p class="header-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, iste!.</p>
+                </div>
+
+                <div class="row">
+                    
+                    <div class="col-12 col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                
+                                <div class="btn-group">
+                                    <button type="button" class="btn mb-1 btn-secondary"
+                                     aria-haspopup="true"
+                                      aria-expanded="false"
+                                      routerLink="/clientes/registrar">
+                                        Registrar Cliente
+                                      </button>
+                                </div>
+                                
+                            </div>
+                            <table class="table table-striped table-hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Cliente</th>
+                                        <th>Email</th>
+                                        <th>CIF/DNI</th>
+                                        <th>Puntos</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let cliente of clientes | paginate: { itemsPerPage: 4, currentPage: p }">
+                                    
+                                        <td>{{cliente.nombre}}</td>
+                                        <td>{{cliente.correo}}</td>
+                                        <td>{{cliente.dni}}</td>
+                                        <td>{{cliente.puntos}}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn mb-1 btn-secondary dropdown-toggle" 
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-cog"></i>
+                                                </button>
+                                                <div class="dropdown-menu" >
+                                                    <a class="dropdown-item" style="cursor: pointer;" [routerLink] ="['/clientes/editar/',cliente._id]">Editar cliente</a>
+                                                    <a class="dropdown-item" style="cursor: pointer;" (click)="eliminarCliente(cliente._id)">Borrar cliente</a>
+                                                    
+                                                </div>
+                                            </div>
+                                        </td>
+                                    
+                                </tbody> 
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-12">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>   
+   
+</div>

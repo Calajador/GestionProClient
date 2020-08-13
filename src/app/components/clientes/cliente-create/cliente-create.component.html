@@ -1,0 +1,55 @@
+
+<div class="wrapper">
+    <app-sidebar></app-sidebar>
+
+    <div class="main">
+        <main class="content">
+            <div class="container-fluid">
+
+                <div class="header">
+                    <h1 class="header-title">
+                       Registro de Clientes
+                    </h1>
+                    
+                </div>
+
+                <div class="row">
+
+                    <div class="col-12 col-xl-12">
+                        <form #clienterForm="ngForm" (ngSubmit)="onSubmit(clienterForm)">
+                            <div class="form-group">
+                              <label for="nombre">Nombre</label>
+                              <input type="text" class="form-control" id="nombre" placeholder="Nombre"
+                              [(ngModel)]="cliente.nombre" name="nombre">
+                            </div>
+                            <div class="form-group">
+                              <label for="CIF">CIF/DNI</label>
+                              <input type="text" class="form-control" id="CIF" placeholder="CIF o DNI"
+                              [(ngModel)]="cliente.dni" name="dni">
+                            </div>
+                            <div class="form-group">
+                              <label for="email">Email</label>
+                            ``<input type="email" class="form-control" id="email" placeholder="Email"
+                              [(ngModel)]="cliente.correo" name="correo">
+                            </div>
+                            <div class="form-group">
+                              <label for="puntos">Puntos</label>
+                              <input type="number" class="form-control" id="puntos" placeholder="Puntos"
+                              [(ngModel)]="cliente.puntos" name="puntos">
+                            </div>
+
+                            <div class="col-lg-12 form-group">
+                                <button class="btn btn-secondary btn-lg" type="submit">Registrar</button>
+                            </div>
+                          </form>
+                    </div>
+                    
+                </div>
+                
+                
+
+            </div>
+        </main>
+    </div>   
+   
+</div>
